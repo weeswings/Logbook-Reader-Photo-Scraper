@@ -5,7 +5,7 @@ Spotters regularly put photographs up of big jets landing, taking off or taxiing
 
 This simple script reads the date and aircraft registration section of your logbook and searches through airliners.net to see if there are any matching photographs. Then the individual can go and double check if that picture is actually a photo of themselves flying.
 
-Logbook needs to be a csv file with a 'Date' column in d/m/y format and a 'registration' column with the country identifer hypen the aircraft code like 'G-EZAI' or 'N976CT'. Look on Airliners.net to see which registration format is closest for your chosen region.
+Logbook needs to be a csv file in the same folder called 'Logbook.csv' with a 'Date' column in d/m/y format and a 'Registration' column like 'G-EZAI' or 'N976CT'. Look on Airliners.net to see which registration format is closest for your chosen region.
 
 The script relies on the tags and the search function of Airliners.net which can be patchy and inconsistent so bear that in mind when using it.
 
