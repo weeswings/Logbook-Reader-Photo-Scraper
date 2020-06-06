@@ -37,9 +37,32 @@ def get_photo_info(date,reg):
 	except AttributeError:
 		print("No photograph found for {} on date: {}".format(reg,date))
 
-if __name__ == '__main__':
+def main():
+	#load data, set the date column to datetime
 	data = pd.read_csv("Logbook.csv")
 	data['Date'] = pd.to_datetime(data['Date'])
 
+	#initalise variable to check for repetition
+	reg_prev = None
+	date_prev = None
+
+	#loop through each row taking the date and reg to check airliners.net
 	for iterator in range(0,len(data)):
-		get_photo_info(data.loc[iterator,'Date'].strftime('%Y-%m-%d'),data.loc[iterator, 'Registration'])
+		try:
+			date = data.loc[iterator,'Date'].strftime('%Y-%m-%d')
+			reg = data.loc[iterator, 'Registration']
+
+			#if the request is the same as previous then skip
+			if date != date_prev and reg != reg_prev:
+				get_photo_info(date,reg)
+
+			#set the previous variables
+			date_prev = date
+			reg_prev = reg
+		except:
+			pass
+
+
+if __name__ == '__main__':
+	main()
+	
