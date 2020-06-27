@@ -40,7 +40,7 @@ def get_photo_info(date,reg):
 def main():
 	#load data, set the date column to datetime
 	data = pd.read_csv("Logbook.csv")
-	data['Date'] = pd.to_datetime(data['Date'])
+	data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
 
 	#initalise variable to check for repetition
 	reg_prev = None
@@ -65,4 +65,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-	
